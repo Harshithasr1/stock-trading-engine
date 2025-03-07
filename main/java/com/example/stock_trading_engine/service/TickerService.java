@@ -46,6 +46,20 @@ public class TickerService {
         return orderBook.getMatchedOrders();
     }
 
+    public Order[] getAllOrdersFromOrderBook(int index) {
+        if (index >= 0 && index < NUM_TICKERS) {
+            return orderBooks[index].getAllOrders();
+        }
+        return null;
+    }
+
+    public Order[] getAllMatchedOrdersFromOrderBook(int index) {
+        if (index >= 0 && index < NUM_TICKERS) {
+            return orderBooks[index].getMatchedOrders();
+        }
+        return null;
+    }
+
     private int getTickerIndex(String tickerSymbol) {
         return Math.abs(tickerSymbol.hashCode()) % NUM_TICKERS;
     }
