@@ -24,11 +24,11 @@ public class SimulationService {
     @Scheduled(fixedRate = 1000) // Run every 1 second
     public void simulateTrading() {
         OrderDTO orderDTO = generateRandomOrder();
-        System.out.println("Simulated Order: " + orderDTO.getTickerSymbol() + ", " +
-                                                 orderDTO.getOrderType().toString() + ", $" +
-                                                 orderDTO.getPrice() + ", " +
-                                                 orderDTO.getQuantity());
         orderMatchingService.addOrder(orderDTO);
+        System.out.println("Simulated Order: " + orderDTO.getTickerSymbol() + ", " +
+                                                 orderDTO.getOrderType().toString() + ", Price: $" +
+                                                 orderDTO.getPrice() + ", Quantity: " +
+                                                 orderDTO.getQuantity());
     }
 
     private OrderDTO generateRandomOrder() {
@@ -39,4 +39,5 @@ public class SimulationService {
         orderDTO.setPrice(Math.round((random.nextDouble() * 1000 + 10) * 100.0) / 100.0);
         return orderDTO;
     }
+
 }

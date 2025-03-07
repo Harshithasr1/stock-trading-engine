@@ -3,12 +3,21 @@ package com.example.stock_trading_engine.dto;
 import com.example.stock_trading_engine.enums.OrderType;
 
 public class OrderDTO {
+    private String id;
     private OrderType orderType;
     private String tickerSymbol;
     private int quantity;
     private double price;
 
     // Getters and setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public OrderType getOrderType() {
         return orderType;
     }
